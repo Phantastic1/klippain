@@ -46,7 +46,7 @@ function check_download {
     if [ ! -d "${FRIX_CONFIG_PATH}" ]; then
         echo "[DOWNLOAD] Downloading Frix-x configuration folder..."
         if git -C $frixtemppath clone -b v3.0.0 https://github.com/Benoitone/klipper-voron-V2.git $frixreponame; then
-            chmod +x ${FRIX_CONFIG_PATH}/install.sh
+            chmod +x ${FRIX_CONFIG_PATH}/install_ben.sh
             printf "[DOWNLOAD] Download complete!\n\n"
         else
             echo "[ERROR] Download of Frix-x configuration git repository failed!"
@@ -95,7 +95,7 @@ function install_config {
     fi
 
     # CHMOD the scripts to be sure they are all executables (Git should keep the modes on files but it's to be sure)
-    chmod +x ${FRIX_CONFIG_PATH}/install.sh
+    chmod +x ${FRIX_CONFIG_PATH}/install_ben.sh
     for file in graph_vibrations.py plot_graphs.sh; do
         chmod +x ${FRIX_CONFIG_PATH}/scripts/$file
     done
